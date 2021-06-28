@@ -1,0 +1,98 @@
+<DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>load cover</title>
+		<meta charset="utf-8">
+		<style>
+			.st{
+				background-color:#ddd;
+				border:1px solid #000;
+				border-radius:6px;
+				padding:12;
+			}
+			img{
+				background-color:eee;
+				border-radius:12px
+			}
+			#console{
+				width:265
+			}
+			#art{
+				width:640
+			}
+		</style>
+	</head>
+	<body>
+		<h1>este é um loader de covers de ps1/ps2</h1>
+		<input class="st", id="idgame", type="text", placeholder="digite aqui o id do seu jogo."></input>
+		<button class="st", onClick="init()">click aqui</button>
+		<div class="st", id="console">
+			<input id="ps2", type="radio", name="console"></input>
+			<label>ps2</label>
+			<input id="ps1", type="radio", name="console"></input>
+			<label>ps1</label>
+			<input id="apps", type="radio", name="console"></input>
+			<label>apps</label>
+		</div>
+		<br>
+		<div class="st", id="art">
+			<label id="imgs">ainda não tem nada aqui</label>
+			
+			<div id="ico"></div>
+			<div id="cov"></div>
+			<div id="cov2"></div>
+			<div id="lab"></div>
+			<div id="lgo"></div>
+			
+			<div id="bg"></div>
+			<div id="scr"></div>
+			<div id="scr2"></div>
+		</div>
+				
+		<p>este é um projeto feito por: josé dev</p>
+		<script>
+			function init(){
+				var id=document.getElementById("idgame").value
+				
+				var site
+				var siteapp
+				if(document.getElementById("ps1").checked){
+					site="https://ia801805.us.archive.org/view_archive.php?archive=/10/items/OPLM_ART_2021_03/OPLM_ART_2021_03.zip&file=PS1%2F"+id+"%2F"+id
+				}
+				if(document.getElementById("ps2").checked){
+					site="https://ia801805.us.archive.org/view_archive.php?archive=/10/items/OPLM_ART_2021_03/OPLM_ART_2021_03.zip&file=PS2%2F"+id+"%2F"+id
+				}
+				if(document.getElementById("apps").checked){
+					siteapp="https://web.archive.org/web/20160817151612/http://opl.sksapps.com/art/"+id+".ELF"
+				}
+				
+				if(site!=null){
+					document.getElementById("imgs").innerHTML=""
+					
+					document.getElementById("ico").innerHTML="<img src='"+site+"_ICO.png', alt='ICO'></img><br><a href='"+site+"_ICO.png'><label>ICO</label></a><br>"
+					document.getElementById("cov").innerHTML="<img src='"+site+"_COV.jpg', alt='COV'></img><br><a href='"+site+"_COV.jpg'><label>COV</label></a><br>"
+					document.getElementById("cov2").innerHTML="<img src='"+site+"_COV2.jpg', alt='COV2'></img><br><a href='"+site+"_COV2.jpg'><label>COV2</label></a><br>"
+					document.getElementById("lab").innerHTML="<img src='"+site+"_LAB.jpg', alt='LAB'></img><br><a href='"+site+"_LAB.jpg'><label>LAB</label></a><br>"
+					document.getElementById("lgo").innerHTML="<img src='"+site+"_LGO.png', alt='LGO'></img><br><a href='"+site+"-LGO.png'><label>LGO</label></a><br>"
+					
+					document.getElementById("bg").innerHTML="<img src='"+site+"_BG_00.jpg', alt='BG'></img><br><a href='"+site+"_BG_00.jpg', download='"+id+"_BG'><label>BG</label></a><br>"
+					document.getElementById("scr").innerHTML="<img src='"+site+"_SCR_00.jpg', alt='SCR'></img><br><a href='"+site+"_SCR_00.jpg', download='"+id+"_SCR'><label>SCR</label></a><br>"
+					document.getElementById("scr2").innerHTML="<img src='"+site+"_SCR_01.jpg', alt='SCR2'></img><br><a href='"+site+"_SCR_01.jpg', download='"+id+"_SCR2'><label>SCR2</label></a>"
+ 				}
+				if(siteapp!=null){
+					document.getElementById("imgs").innerHTML=""
+					
+					document.getElementById("ico").innerHTML="<img src='"+siteapp+"_ICO.png', alt='ICO'></img><a href='"+siteapp+"_ICO.png'><br><label>ICO</label></a><br>"
+					document.getElementById("cov").innerHTML="<img src='"+siteapp+"_COV.png', alt='COV'></img><a hred='"+siteapp+"_COV.png', download='"+id+"_COV.jpg'><br><label>COV</label></a><br>"
+					document.getElementById("cov2").innerHTML=""
+					document.getElementById("lab").innerHTML=""
+					document.getElementById("lgo").innerHTML=""
+					
+					document.getElementById("bg").innerHTML=""
+					document.getElementById("scr").innerHTML=""
+					document.getElementById("scr2").innerHTML=""
+				}
+			}
+		</script>
+	</body>
+</html>
