@@ -4,11 +4,10 @@
 		<title>load cover</title>
 		<meta charset="utf-8">
 		<style>
-			html, body{
+			body{
 				width:100%;
 				height:100%;
-				font-family:monospace;
-				background-color:bbb
+				font-family:monospace
 			}
 			.st{
 				background-color:#ddd;
@@ -25,7 +24,6 @@
 			}
 			#art{
 				width:640px;
-				background-image:url(icons/ps1.png);
 				background-position:center;
 				min-height:100px
 			}
@@ -65,11 +63,23 @@
 				
 				var site
 				var siteapp
+				var art=document.getElementById("art")
+				var body=document.body
+				var st=document.getElementsByTagName("st")
+
 				if(document.getElementById("ps1").checked){
 					site="https://ia801805.us.archive.org/view_archive.php?archive=/10/items/OPLM_ART_2021_03/OPLM_ART_2021_03.zip&file=PS1%2F"+id+"%2F"+id
+					art.style.backgroundImage="url(icons/ps1.png)"
+					//body.style.backgroundColor="bbb"
+					body.style.fontColor="000"
+					//st.style.backgroundColor="ddd"
 				}
 				if(document.getElementById("ps2").checked){
 					site="https://ia801805.us.archive.org/view_archive.php?archive=/10/items/OPLM_ART_2021_03/OPLM_ART_2021_03.zip&file=PS2%2F"+id+"%2F"+id
+					art.style.backgroundImage="url(icons/ps2.png)"
+					//body.style.backgroundColor="222"
+					body.style.fontColor="fff"
+					//st.style.backgroundColor="444"
 				}
 				if(document.getElementById("apps").checked){
 					siteapp="https://web.archive.org/web/20160817151612/http://opl.sksapps.com/art/"+id+".ELF"
